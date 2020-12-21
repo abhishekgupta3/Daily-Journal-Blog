@@ -4,8 +4,16 @@
 nav li{
     padding: 0 10px 0 10px;
 }
+h1,h2{
+    margin-bottom: 1rem;
+}
 .main-content{
-margin-top:20px;
+   margin-top:20px;
+   max-width: 1000px;
+   padding: 50px;
+}
+.home-btn{
+    margin-top: 2rem;
 }
 @media (max-width:1000px){
     .navbar-brand {
