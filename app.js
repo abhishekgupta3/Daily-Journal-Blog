@@ -27,20 +27,20 @@ content :  String
 
 const Post = mongoose.model( "Post" , postSchema);
 
-const newBlog1 = new Post({
-    title: "HELLO WORLD",
-    content : "neice to meemt this workdl."
-})
-const newBlog2 = new Post({
-    title: "HeY iA< // '''",
-    content : "nusu huhgio ajfhi kaoaop  this workdl."
-})
-const newBlog3 = new Post({
-    title: "uui wpp87 9(W__ ",
-    content : "neii rwopopr jiwjo iweui64555 workdl."
-})
+// const newBlog1 = new Post({
+//     title: "HELLO WORLD",
+//     content : "neice to meemt this workdl."
+// })
+// const newBlog2 = new Post({
+//     title: "HeY iA< // '''",
+//     content : "nusu huhgio ajfhi kaoaop  this workdl."
+// })
+// const newBlog3 = new Post({
+//     title: "uui wpp87 9(W__ ",
+//     content : "neii rwopopr jiwjo iweui64555 workdl."
+// })
 
-const defaultArray = [newBlog1, newBlog2, newBlog3];
+const defaultArray = [];
 
 // GET home route
 app.get("/",function(req,res){
@@ -50,7 +50,7 @@ Post.find({},(err,items)=>{
     if(items.length===0){
         Post.insertMany(defaultArray, (err)=>{
             if(err)console.log(err);
-            else console.log("success");
+            // else console.log("success");
         });
     }
     res.render("home",{homeStartingContent:homeStartingContent,posts:items});

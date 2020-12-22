@@ -4,6 +4,9 @@
 nav li{
     padding: 0 10px 0 10px;
 }
+nav li:active{
+color: chartreuse;
+}
 h1,h2{
     margin-bottom: 1rem;
 }
@@ -15,6 +18,43 @@ h1,h2{
 .home-btn{
     margin-top: 2rem;
 }
+.home-page{
+    background-color: rgb(243, 242, 241);
+    margin-bottom: 25px;
+    border: .3px solid rgba(46, 45, 45, 0.493);
+}
+.home-page h2{
+    padding: 10px;
+    border-bottom: .3px solid rgba(46, 45, 45, 0.493);   
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+
+}
+ .title{
+    background-color: rgba(48, 48, 47, 0.28);
+}
+.home-page p{
+    padding: 0 10px 10px 15px ;
+}
+
+.form-login{
+    max-width: 500px;
+    background-color: rgb(253, 252, 252);
+    height: 450px;
+
+}
+.form-login h1{
+    padding: 10px;
+}
+
+.social-btn button{
+    margin: 0 auto;
+    background-color: #db4a39;
+    width: 100%;
+}
+
+
+
 @media (max-width:1000px){
     .navbar-brand {
         font-size: 1.5rem;
