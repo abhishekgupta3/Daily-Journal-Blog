@@ -4,9 +4,7 @@
 nav li{
     padding: 0 10px 0 10px;
 }
-nav li:active{
-color: chartreuse;
-}
+
 h1,h2{
     margin-bottom: 1rem;
 }
