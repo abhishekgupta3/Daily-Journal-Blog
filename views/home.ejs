@@ -1,14 +1,18 @@
-<%- include("partials/header"); -%>
+ <%- include("partials/header"); -%>
 
-<%posts.forEach(function(element){%>
+ <%posts.forEach(function(element){%>
+    <%let checker = element.title;%>
+    <%if(checker){%>
     <div class="home-page">
-        <div class="title"><h2><%=element.title%></h2></div>
-        <p> <%= (element.content).substring(0,400) + "..."%> 
-        <a href="/posts/<%=element.title%> ">Read More</a></p>
-    </div>
-<%})%>
+            <div class="title"><h2><%=checker%></h2></div>
+              <p> <%=(element.content).substring(0,400) + "..." %> 
+            <a href="/posts/<%=element.title%> ">Read More</a></p> 
+      
+   </div>
+   <%}%>
+<%})%> 
 
-
+ 
 <a href="/compose" class="btn btn-dark home-btn">Write a post</a>
-<%- include("partials/footer"); -%>
-
+<%- include("partials/footer"); -%> 
+ 
