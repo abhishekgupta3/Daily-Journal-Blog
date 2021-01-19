@@ -1,5 +1,5 @@
 const express= require("express");
-const Data = require('../config/mongoose.js')
+const {Post,User} = require('../config/mongoose.js')
 const router =express.Router();
 
 // GET compose route
@@ -12,10 +12,9 @@ router.get("/",function(req,res){
 router.post("/",function(req,res){
    // receiving title&content in post object
    console.log(req.body);
-    const postData= new Data({
+    const postData= new Post({
         title:req.body.postTitle,
         content:req.body.postBody
-        
     }).save();
     
     //adding post obj to posts array

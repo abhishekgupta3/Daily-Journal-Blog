@@ -7,7 +7,7 @@ const _ = require("lodash");
 const passportLocalMongoose = require("passport-local-mongoose"); 
 const passport = require("passport"); 
 const session = require("express-session"); 
-const Data = require('./config/mongoose.js')
+const {Post,User} = require('./config/mongoose.js')
 
 
 app.set("view engine","ejs");
@@ -40,7 +40,7 @@ app.use('/',require('./routes/home.js'));
 //for particular blog posts
 app.get("/posts/:blogTitle",function(req,res){
     const b = req.params.blogTitle;
-    Data.find((err,items)=>{
+    Post.find((err,items)=>{
         items.forEach(function(item){
             let a = item.title;
             if(_.lowerCase(a)===_.lowerCase(b)){

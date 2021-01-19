@@ -1,5 +1,4 @@
 const express= require("express");
-const Data = require('../config/mongoose.js')
 const router =express.Router();
 
 // GET register route
