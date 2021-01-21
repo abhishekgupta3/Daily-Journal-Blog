@@ -11,7 +11,7 @@ router.get("/",function(req,res){
 // POST on compose route
 router.post("/",function(req,res){
    // receiving title&content in post object
-   console.log(req.body);
+   // console.log(req.body);
     const postData= new Post({
         title:req.body.postTitle,
         content:req.body.postBody

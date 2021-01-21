@@ -10,27 +10,24 @@ router.use('/register',require('./register'))
 
 const newBlog1 = new Post({
     title: "HELLO WORLD",
-    content : "neice to meemt this workdl."
+    content : "nice to meet this world."
 })
 const newBlog2 = new Post({
     title: "HeY iA< // '''",
     content : "nusu huhgio ajfhi kaoaop  this workdl."
 })
-const newBlog3 = new Post({
-    title: "uui wpp87 9(W__ ",
-    content : "neii rwopopr jiwjo iweui64555 workdl."
-})
 
-const defaultArray = [newBlog1,newBlog2,newBlog3];
+
+const defaultArray = [newBlog1,newBlog2];
 
 // GET home route
 router.get("/",function(req,res){
 
-// Post.find({},(err,items)=>{
-//     console.log(items);
-//     res.render("home",{posts:items});
-// })
-    res.render("home",{posts:defaultArray});
+Post.find({},(err,items)=>{
+    // console.log(items);
+    res.render("home",{posts:items});
+})
+    // res.render("home",{posts:defaultArray});
 })
 
 module.exports= router;

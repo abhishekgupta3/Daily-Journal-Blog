@@ -4,7 +4,6 @@ const bodyParser= require("body-parser");
 const app=express();
 const port= process.env.PORT || 3000;
 const _ = require("lodash"); 
-const passportLocalMongoose = require("passport-local-mongoose"); 
 const passport = require("passport"); 
 const session = require("express-session"); 
 const {Post,User} = require('./config/mongoose.js')
@@ -12,29 +11,35 @@ const {Post,User} = require('./config/mongoose.js')
 
 app.set("view engine","ejs");
 app.use(express.static("public"));
-
 app.use(bodyParser.urlencoded({extended:true}));
 
+
+app.use(session({
+    secret: "longstring",
+    resave: false,
+    saveUninitialized: false
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+passport.use(User.createStrategy());
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+
 app.use('/',require('./routes/home.js'));
-
-// app.use(session({
-//     secret: "longstring",
-//     resave: false,
-//     saveUninitialized: false
-// }))
-
-// app.use(passport.initialize());
-// app.use(passport.session());
-
-// mongoose.set("useCreateIndex",true);
-
-
-// dbSchema.plugin(passportLocalMongoose);
-
-// passport.use(Data.createStrategy());
-
-// passport.serializeUser(Data.serializeUser());
-// passport.deserializeUser(Data.deserializeUser());
 
 
 //for particular blog posts
