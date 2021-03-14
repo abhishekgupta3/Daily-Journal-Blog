@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose"); 
 
-
-mongoose.connect("mongodb://localhost:27017/mainDB", { useNewUrlParser: true ,useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://admin-abhishek:abhishek@cluster0.juiri.mongodb.net/mainDB", { useNewUrlParser: true ,useUnifiedTopology: true })
 mongoose.set("useCreateIndex",true);
 
-
+// post schema
 const postSchema = new mongoose.Schema({
     title: String, 
     content: String
 })
 
+// user schema
 const userSchema = new mongoose.Schema({
     email : String,
     password : String,

@@ -1,5 +1,6 @@
 const express= require("express");
 const router =express.Router();
+const passport = require("passport"); 
 const {Post,User} = require('../config/mongoose.js')
 
 // GET register route
@@ -17,9 +18,9 @@ router.post("/", (req,res)=>{
         }
         else{
             console.log("reached here..")
-            // passport.authenticate("local")(req,res,function(){
-            //     res.redirect("/home");
-            // });
+            passport.authenticate("local")(req,res,function(){
+                res.redirect("/home");
+            });
             res.redirect("/");
         }
     });

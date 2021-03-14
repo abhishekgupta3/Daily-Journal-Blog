@@ -6,7 +6,7 @@ router.use('/about',require('./about'))
 router.use('/contact',require('./contact'))
 router.use('/compose',require('./compose'))
 router.use('/login',require('./login'))
-router.use('/register',require('./register'))
+// router.use('/register',require('./register'))
 
 const newBlog1 = new Post({
     title: "HELLO WORLD",
