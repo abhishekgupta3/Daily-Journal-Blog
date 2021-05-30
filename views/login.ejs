@@ -3,13 +3,9 @@
 <div class="container form-login" >
 <form class="form-signin" action="/login" method="POST">
     <h1 class="h2 mb-3 " style="text-align: center"> Login </h1>
-    <div class="social-btn">
-        <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> <a href= "/auth/google"> Sign in with Google+ </a></span> </button>
-    </div>
-    <hr>
-    <p style="text-align:center"> OR  </p>
-    <input type="email" id="username" class="form-control" placeholder="Email address" required="" autofocus="">
-    <input type="password" id="password" class="form-control" placeholder="Password" required="">
+    
+    <input type="email" name="username" class="form-control" placeholder="Email address" required="" autofocus="">
+    <input type="password" name="password" class="form-control" placeholder="Password" required="">
     
     <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
     <hr>
