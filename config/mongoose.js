@@ -9,14 +9,16 @@ mongoose.set("useCreateIndex",true);
 
 // post schema
 const postSchema = new mongoose.Schema({
+	author : String,
     title: String, 
     content: String
 })
 
 // user schema
 const userSchema = new mongoose.Schema({
-    email : String,
-    password : String,
+	name : String,
+    username : String,
+    password : String
 })
 
  // creating a model 

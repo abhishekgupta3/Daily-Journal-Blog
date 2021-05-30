@@ -70,16 +70,20 @@ app.get("/",function(req,res){
 });
 
 // GET compose route
-app.get("/compose",isLoggedIn, function(req,res){
+app.get("/compose",isLoggedIn, function(req,res){  
     res.render("compose",{isAuthenticated:req.isAuthenticated()});
 });
 
 // POST on compose route
 app.post("/compose",function(req,res){
+
+  const UsersName = req.user.name;
+
    // receiving title & content in post object
     const postData = new Post({
-        title:req.body.postTitle,
-        content:req.body.postBody
+        author  : UsersName,
+        title   : req.body.postTitle,
+        content : req.body.postBody
     }).save();
 
     //redirecting the user back to home route
@@ -93,13 +97,21 @@ app.get("/register",function(req,res){
 
 // POST register route
 app.post("/register", (req,res)=>{
-  console.log(req.body.username, req.body.password);
-    const exists = User.exists({ username: req.body.username });
 
-  if (exists) {
-    res.redirect('/register?error=true');
-    return;
-  };
+  User.findOne({ username: req.body.username },function(err,foundUser){
+    if(err){
+      console.log(err);
+      res.redirect('/register?error=true');
+    }
+    else {
+      if(foundUser){
+        console.log("user exists");
+        res.redirect('/register?error=true');
+        return;
+      }
+    }
+  });
+  console.log(req.body.Name, req.body.username,req.body.password);
 
       bcrypt.genSalt(10, function (err, salt) {
           if (err) return next(err);
@@ -107,10 +119,11 @@ app.post("/register", (req,res)=>{
               if (err) return next(err);
       
               const newUser = new User({
+                name: req.body.Name,
                 username: req.body.username,
                 password: hash
               });
-
+console.log('reahed heare ');
               newUser.save();
 
               res.redirect('/login');
@@ -152,4 +165,3 @@ app.get("/posts/:blogTitle",function(req,res){
 app.listen(port,function(){
     console.log("Server listing at port...");
 });
-
