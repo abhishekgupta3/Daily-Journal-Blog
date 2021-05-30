@@ -111,8 +111,6 @@ app.post("/register", (req,res)=>{
       }
     }
   });
-  console.log(req.body.Name, req.body.username,req.body.password);
-
       bcrypt.genSalt(10, function (err, salt) {
           if (err) return next(err);
           bcrypt.hash(req.body.password, salt, function (err, hash) {
@@ -123,7 +121,6 @@ app.post("/register", (req,res)=>{
                 username: req.body.username,
                 password: hash
               });
-console.log('reahed heare ');
               newUser.save();
 
               res.redirect('/login');
