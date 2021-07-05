@@ -11,7 +11,8 @@ mongoose.set("useCreateIndex",true);
 const postSchema = new mongoose.Schema({
 	author : String,
     title: String, 
-    content: String
+    content: String,
+    email: String
 })
 
 // user schema

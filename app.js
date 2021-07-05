@@ -74,16 +74,26 @@ app.get("/compose",isLoggedIn, function(req,res){
     res.render("compose",{isAuthenticated:req.isAuthenticated()});
 });
 
+// GET profile route
+app.get("/profile",isLoggedIn, function(req,res){ 
+    const email = req.user.username;
+    Post.find({email: email},(err,items)=>{
+        res.render("profile",{posts:items,isAuthenticated:req.isAuthenticated()});
+    })
+});
+
 // POST on compose route
 app.post("/compose",function(req,res){
 
   const UsersName = req.user.name;
+  const email = req.user.username;
 
    // receiving title & content in post object
     const postData = new Post({
         author  : UsersName,
         title   : req.body.postTitle,
-        content : req.body.postBody
+        content : req.body.postBody,
+        email   : email
     }).save();
 
     //redirecting the user back to home route
@@ -135,7 +145,7 @@ app.get("/login",function(req,res){
 
 // POST login route
 app.post('/login', passport.authenticate('local', {
-  successRedirect: '/compose',
+  successRedirect: '/',
   failureRedirect: '/login?error=true'
 }));
 
@@ -147,11 +157,11 @@ app.get('/logout', function (req, res) {
 
 //for particular blog posts
 app.get("/posts/:blogTitle",function(req,res){
-    const b = req.params.blogTitle;
+    const requestedtitle = req.params.blogTitle;
     Post.find((err,items)=>{
         items.forEach(function(item){
-            let a = item.title;
-            if(_.lowerCase(a)===_.lowerCase(b)){
+            let foundtitle = item.title;
+            if(_.lowerCase(foundtitle)===_.lowerCase(requestedtitle)){
                 res.render("post",{element:item,isAuthenticated:req.isAuthenticated()})
             }
         });

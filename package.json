@@ -8,8 +8,8 @@
   },
   "author": "Abhishek Gupta",
   "license": "ISC",
-  "engines":{
-    "node":"12.18.4"
+  "engines": {
+    "node": "12.18.4"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
