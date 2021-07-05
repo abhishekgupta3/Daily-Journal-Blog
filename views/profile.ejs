@@ -1,7 +1,7 @@
 <%- include("partials/header"); -%>
 
 <div class="profileSection">
-    <h2 class="profilePrimaryHeading">Your Feed. </h2>
+    <h2 class="profilePrimaryHeading">Your Feed </h2>
 
     <%posts.slice().reverse().forEach(function(element){%>
         <%let checker = element.title;%>
@@ -16,7 +16,7 @@
     <%})%> 
 
     <% if(posts.length === 0){ %>
-        <div> "No posts found."</div>
+        <div> <p> No posts found. <a href="https://blogx-eyrie.herokuapp.com/compose">Click here</a> to add a post.<p> </div>
     <% } %>
 
 </div>

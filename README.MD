@@ -20,9 +20,6 @@ Install all the dependencies for the project by using `npm install` in your loca
 ##### RUN
 - First navigate to the cloned repo on your PC and enter `npm start` to run the backend.
 
-**NOTE**:- Currently in development. MongoDB atlas or any cloud server is not being used so make sure to run the MongoDB server at backend by yourselves using MongoDB driver.
-
-
 ### Back End
 
 Backend is completely designed using NodeJS, ExpressJS, EJS. MongoDB used as a database for this project.
