@@ -2,16 +2,24 @@
 
 <div class="auth form-login">
     <form class="form-signin" action="/register" method="POST"> 
+
         <h1 class="h2 mb-3 " style="text-align: center"> Register </h1>
         
-        <input type="text" name="Name" class="form-control" placeholder="Enter your name" required="" autofocus="">
+        <input type="text" name="Name" class="form-control" 
+        placeholder="Enter your name" required="" autofocus="">
+
         <input type="email" name="username" class="form-control" placeholder="Email address" required="" >
+
         <input type="password" name="password" class="form-control" placeholder="Password" required="">
         
-        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Register</button>
+        <button class="btn btn-success btn-block" type="submit">
+        <i class="fas fa-sign-in-alt"></i> Register</button>
         <hr>
         <p style="text-align:center">Already have an account!</p> 
-        <a class="btn btn-primary btn-block" type="button"  href="/login"><i class="fas fa-user-plus"></i> Login </a>
+
+        <a class="btn btn-primary btn-block" type="button" href="/login">
+        <i class="fas fa-user-plus"></i> Login </a>
+
     </form>
 </div>
 

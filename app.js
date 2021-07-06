@@ -155,6 +155,36 @@ app.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
+//Delete particular blog posts
+app.get("/delete/:blogTitle",function(req,res){
+
+    const userEmail = req.user.username;
+    const requestedtitle = req.params.blogTitle;
+
+    Post.find((err,items)=>{
+        if(err){
+            console.log(err);
+            res.redirect('/');
+        }
+        else {
+          items.forEach(function(item){
+              let foundtitle = item.title;
+              if(_.lowerCase(foundtitle)===_.lowerCase(requestedtitle) && item.email == userEmail){
+                  const id = item._id;
+                  Post.findByIdAndDelete(id,(err)=>{
+                      if(err){
+                        res.redirect('/');
+                        return;
+                      }
+                      else {res.redirect('/'); return;}
+                  });
+              }
+          });
+        }
+    });
+
+});
+
 //for particular blog posts
 app.get("/posts/:blogTitle",function(req,res){
     const requestedtitle = req.params.blogTitle;

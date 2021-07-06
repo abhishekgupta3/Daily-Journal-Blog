@@ -1,11 +1,15 @@
 <%- include("partials/header"); -%>
 
-<div class="container particularPost">
-<h2><%=element.title%></h2>
-<p> <%= element.content %> </p>
-<div> Author - <span style="font-weight:500;"> <%= element.author %> <span>
+    <div class="container particularPost">
 
-</div>
+        <h2><%=element.title%></h2>
+
+        <p><%= element.content %></p>
+
+        <div> Author - <span style="font-weight:500;"> <%= element.author %> <span>
+        </div>
+        
+    </div>
 
 <%- include("partials/footer"); -%>
 

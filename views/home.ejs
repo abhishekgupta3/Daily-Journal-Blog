@@ -1,15 +1,24 @@
- <%- include("partials/header"); -%>
+<%- include("partials/header"); -%>
 
- <%posts.slice().reverse().forEach(function(element){%>
+<%posts.slice().reverse().forEach(function(element){%>
     <%let checker = element.title;%>
+
     <%if(checker){%>
+
     	<div class="home-page-box">
+
             <div class="box-title"><h2><%=checker%></h2></div>
+
             <p><%=(element.content).substring(0,400) + "..." %> 
+
             <a href="/posts/<%=element.title%> ">Read More</a></p>
+
             <div class="author"> Author - <span> <%= element.author %> <span> </div>
+
    		</div>
-   <%}%>
+        
+    <%}%>
+
 <%})%> 
 
  
