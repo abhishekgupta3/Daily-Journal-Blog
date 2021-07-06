@@ -3,6 +3,10 @@
 <div class="profileSection">
     <h2 class="profilePrimaryHeading">Your Feed </h2>
 
+    <% if(posts.length === 0){ %>
+        <div> <p> No posts found. <a href="https://blogx-eyrie.herokuapp.com/compose"> Click here </a> to add a post.<p> </div>
+    <% } %>
+
     <%posts.slice().reverse().forEach(function(element){%>
         <%let checker = element.title;%>
         <%if(checker){%>
@@ -17,9 +21,6 @@
         <%}%>
     <%})%> 
 
-    <% if(posts.length === 0){ %>
-        <div> <p> No posts found. <a href="https://blogx-eyrie.herokuapp.com/compose"> Click here </a> to add a post.<p> </div>
-    <% } %>
 
 </div>
 
